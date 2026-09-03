@@ -181,7 +181,8 @@ class MXN5Instance extends InstanceBase {
 						break;
 					case 'AUDIO_GAIN_HI_RES':
 						if (commandNum) {
-							self.updateVariable(`channel_audio_gain_${commandNum}`, this.gainStringToNumber(this.trimShureString(commandVal)))	
+							const channel = parseInt(commandNum, 10)
+							self.updateVariable(`channel_audio_gain_${channel}`, this.gainStringToNumber(this.trimShureString(commandVal)))
 						} else {
 							self.updateVariable('audio_gain_hi_res', this.gainStringToNumber(this.trimShureString(commandVal)))
 						}
